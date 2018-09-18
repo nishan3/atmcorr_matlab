@@ -26,12 +26,10 @@ profile_option = 2;
 stdatm_opt = 1;
 landsattype = 8;
 
+email = 'TYPE YOUR EMAIL HERE';
 % email = 'your email'; %PLESE DO NOT USE MY EMAIL- The system will
 % automatically send an email to the given address (from Barsi, NASA), once
 % the parameters are estimated.
-
-email = 'onlynishan@gmail.com';
-
 
 
 % [Lu,Ld,t] = atmcorr_param(year,month,day,imghr,imgmm,stlat,stlon,landsattype,email,profile_option,stdatm_opt);
