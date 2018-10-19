@@ -14,7 +14,6 @@
 
 % cd ('E:\atmcorr_matlab');
 close all; clear;
-cd 
 stlon =-97.488;
 stlat = 36.6058;
 year = 2015;
