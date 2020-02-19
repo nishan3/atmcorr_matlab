@@ -12,7 +12,7 @@ function [Lu,Ld,t] = atmcorr_param(year,month,day,imghr,imgmm,stlat,stlon,landsa
 % source: https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=1294665
 % NASA ACPC, Atmospheric Correction Parameter Calculator
 % url =  'https://atmcorr.gsfc.nasa.gov/';
-url = 'http://atmcorr.gsfc.nasa.gov/cgi-bin/atm_corr/atm_corr.pl';
+url = 'https://atmcorr.gsfc.nasa.gov/cgi-bin/atm_corr.pl';
 % url = 'https://atmcorr.gsfc.nasa.gov/cgi-bin/atm_corr/atm_corr.pl';
 
 
@@ -87,13 +87,17 @@ stdatm_optstr = int2str(stdatm_opt);
 [s,~]=urlread(url, 'get', {'year',yearstr,'month',monthstr,'day',daystr,'hour',hourstr,'minute',minutestr,'thelat',...
     stlatstr,'thelong',stlonstr,'profile_option',profile_optionstr,'stdatm_option',stdatm_optstr,'L57_option',landsattypestr,'user_email',email});
 
-aa_str=textscan(s,'%s','delimiter','<>, ');
-aa_str = aa_str{1};
-TF = contains(aa_str, "href=");
-aa_link = aa_str{TF==1};
-newStr = erase(aa_link,"href=");
-newStr = erase(newStr,"""");
-s = webread(newStr);
+% aa_str=textscan(s,'%s','delimiter','<>, ');
+% aa_str = aa_str{1};
+% TF = contains(aa_str, "href=");
+% aa_link = aa_str{TF==1};
+% newStr = erase(aa_link,"href=");
+% newStr = erase(newStr,"""");
+
+% try
+%     s = webread(newStr);
+% catch
+% end
 s_str=textscan(s,'%s','delimiter','<>, ');
 s_str = s_str{1};
 s_str= s_str(~cellfun('isempty',s_str));
